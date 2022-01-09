@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
 use Illuminate\Http\Request;
@@ -31,3 +32,5 @@ Route::get('/productlistbyremark/{remark}', [ProductListController::class, 'Prod
 Route::get('/productlistbycategory/{category}', [ProductListController::class, 'ProductListByCategory']);
 
 Route::get('/productlistbysubcategory/{category}/{subcategory}', [ProductListController::class, 'ProductListBySubCategory']);
+
+Route::get('/allslider', [HomeSliderController::class, 'AllSlider']);
