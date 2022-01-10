@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeSliderController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
@@ -37,3 +38,5 @@ Route::get('/productlistbysubcategory/{category}/{subcategory}', [ProductListCon
 Route::get('/allslider', [HomeSliderController::class, 'AllSlider']);
 
 Route::get('/productdetails/{id}', [ProductDetailsController::class, 'ProductDetails']);
+
+Route::get('/notification', [NotificationController::class, 'NotificationHistory']);
