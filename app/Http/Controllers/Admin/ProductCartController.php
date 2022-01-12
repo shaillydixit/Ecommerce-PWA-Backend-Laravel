@@ -149,4 +149,11 @@ class ProductCartController extends Controller
 
 }// End Method 
 
+public function OrderListByUser(Request $request){
+    $email = $request->email;
+    $result = CartOrder::where('email',$email)->orderBy('id','DESC')->get();
+    return $result;
+
+}// End Method 
+
 }
