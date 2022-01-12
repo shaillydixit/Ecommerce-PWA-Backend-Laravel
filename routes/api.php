@@ -14,7 +14,7 @@ use App\Http\Controllers\User\ForgetController;
 use App\Http\Controllers\User\ResetController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\ReviewController;
-
+use App\Http\Controllers\Admin\ProductCartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -68,3 +68,9 @@ Route::get('/similar/{subcategory}',[ProductListController::class, 'SimilarProdu
 
 // Review Product Route
 Route::get('/reviewlist/{id}',[ReviewController::class, 'ReviewList']);
+
+// Product Cart Route
+Route::post('/addtocart',[ProductCartController::class, 'addToCart']);
+
+// Cart Count Route
+Route::get('/cartcount/{product_code}',[ProductCartController::class, 'CartCount']);
