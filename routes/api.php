@@ -7,8 +7,12 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
+use App\Http\Controllers\User\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\ForgetController;
+use App\Http\Controllers\User\ResetController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +46,18 @@ Route::get('/productdetails/{id}', [ProductDetailsController::class, 'ProductDet
 Route::get('/notification', [NotificationController::class, 'NotificationHistory']);
 
 Route::get('/search/{key}', [ProductListController::class, 'ProductBySearch']);
+
+ /////////////// User Login API Start ////////////////////////
+
+ // Login Routes 
+ Route::post('/login',[AuthController::class, 'Login']);
+
+ // Register Routes 
+Route::post('/register',[AuthController::class, 'Register']);
+
+Route::post('/forgetpassword',[ForgetController::class, 'ForgetPassword']);
+ 
+Route::post('/resetpassword',[ResetController::class, 'ResetPassword']);
+
+Route::get('/user',[UserController::class, 'User'])->middleware('auth:api');
+/////////////// End User Login API Start ////////////////////////
