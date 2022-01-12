@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ForgetController;
 use App\Http\Controllers\User\ResetController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,9 @@ Route::post('/resetpassword',[ResetController::class, 'ResetPassword']);
 
 Route::get('/user',[UserController::class, 'User'])->middleware('auth:api');
 /////////////// End User Login API Start ////////////////////////
+
+// Similar Product Route
+Route::get('/similar/{subcategory}',[ProductListController::class, 'SimilarProduct']);
+
+// Review Product Route
+Route::get('/reviewlist/{id}',[ReviewController::class, 'ReviewList']);
