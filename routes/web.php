@@ -25,3 +25,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // logout 
 
 Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+
+Route::prefix('admin')->group(function(){
+
+Route::get('/user/profile',[AdminController::class, 'UserProfile'])->name('user.profile');
+
+Route::post('/user/profile/store',[AdminController::class, 'UserProfileStore'])->name('user.profile.store');
+
+Route::get('/change/password',[AdminController::class, 'ChangePassword'])->name('change.password');
+
+Route::post('/change/password/update',[AdminController::class, 'ChangePasswordUpdate'])->name('change.password.update');
+}); 
