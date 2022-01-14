@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController; 
 use App\Http\Controllers\Admin\HomeSliderController;
-use App\Http\Controllers\Admin\ProductListController; 
+use App\Http\Controllers\Admin\ProductDataController; 
 use App\Http\Controllers\Admin\ContactController; 
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SiteInfoController;
@@ -94,19 +94,17 @@ Route::prefix('slider')->group(function(){
 
     Route::prefix('product')->group(function(){
 
-        Route::get('/all',[ProductListController::class, 'GetAllProduct'])->name('all.product');
+        Route::get('/all',[ProductDataController::class, 'GetAllProduct'])->name('all.product');
         
-        Route::get('/add',[ProductListController::class, 'AddProduct'])->name('add.product');
+        Route::get('/add',[ProductDataController::class, 'AddProduct'])->name('add.product');
         
-        Route::post('/store',[ProductListController::class, 'StoreProduct'])->name('product.store');
+        Route::post('/store',[ProductDataController::class, 'StoreProduct'])->name('product.store');
         
-        Route::get('/edit/{id}',[ProductListController::class, 'EditProduct'])->name('product.edit');
+        Route::get('/edit/{id}',[ProductDataController::class, 'EditProduct'])->name('product.edit');
         
-        Route::post('/update/{id}',[ProductListController::class, 'UpdateProduct'])->name('product.update');
+        Route::post('/update/{id}',[ProductDataController::class, 'UpdateProduct'])->name('product.update');
        
-        Route::post('/details/update',[ProductListController::class, 'DetailsProduct'])->name('product.update');
-
-        Route::get('/delete/{id}',[SliderController::class, 'DeleteSlider'])->name('slider.delete');
+        Route::get('/delete/{id}',[ProductDataController::class, 'DeleteProduct'])->name('product.delete');
         });
 
         /// Contact Message Route 
