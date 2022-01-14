@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ProductList;
 use App\Models\Favourites;
+use App\Models\ProductData;
 
 class FavouriteController extends Controller
 {
@@ -13,7 +13,7 @@ class FavouriteController extends Controller
 
         $product_code = $request->product_code;
         $email = $request->email;
-        $productDetails = ProductList::where('product_code',$product_code)->get();
+        $productDetails = ProductData::where('product_code',$product_code)->get();
 
         $result = Favourites::insert([
 

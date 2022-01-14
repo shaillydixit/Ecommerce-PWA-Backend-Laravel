@@ -4,8 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\Admin\ProductDetailsController;
-use App\Http\Controllers\Admin\ProductListController;
+use App\Http\Controllers\Admin\ProductDataController;
 use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\User\AuthController;
 use Illuminate\Http\Request;
@@ -35,19 +34,19 @@ Route::post('/postcontact', [ContactController::class, 'PostContactDetails']);
 Route::get('/allsiteinfo', [SiteInfoController::class, 'AllSiteInfo']);
 Route::get('/allcategory', [CategoryController::class, 'AllCategory']);
 
-Route::get('/productlistbyremark/{remark}', [ProductListController::class, 'ProductListByRemark']);
+Route::get('/productlistbyremark/{remark}', [ProductDataController::class, 'ProductListByRemark']);
 
-Route::get('/productlistbycategory/{category}', [ProductListController::class, 'ProductListByCategory']);
+Route::get('/productlistbycategory/{category}', [ProductDataController::class, 'ProductListByCategory']);
 
-Route::get('/productlistbysubcategory/{category}/{subcategory}', [ProductListController::class, 'ProductListBySubCategory']);
+Route::get('/productlistbysubcategory/{category}/{subcategory}', [ProductDataController::class, 'ProductListBySubCategory']);
 
 Route::get('/allslider', [HomeSliderController::class, 'AllSlider']);
 
-Route::get('/productdetails/{id}', [ProductDetailsController::class, 'ProductDetails']);
+Route::get('/productdetails/{id}', [ProductDataController::class, 'ProductDetails']);
 
 Route::get('/notification', [NotificationController::class, 'NotificationHistory']);
 
-Route::get('/search/{key}', [ProductListController::class, 'ProductBySearch']);
+Route::get('/search/{key}', [ProductDataController::class, 'ProductBySearch']);
 
  /////////////// User Login API Start ////////////////////////
 
@@ -65,7 +64,7 @@ Route::get('/user',[UserController::class, 'User'])->middleware('auth:api');
 /////////////// End User Login API Start ////////////////////////
 
 // Similar Product Route
-Route::get('/similar/{subcategory}',[ProductListController::class, 'SimilarProduct']);
+Route::get('/similar/{subcategory}',[ProductDataController::class, 'SimilarProduct']);
 
 // Review Product Route
 Route::get('/reviewlist/{id}',[ReviewController::class, 'ReviewList']);

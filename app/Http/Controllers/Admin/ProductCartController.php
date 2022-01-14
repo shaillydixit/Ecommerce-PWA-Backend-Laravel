@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductCart;
-use App\Models\ProductList;
 use App\Models\CartOrder;
+use App\Models\ProductData;
 
 class ProductCartController extends Controller
 {
@@ -17,7 +17,7 @@ class ProductCartController extends Controller
         $quantity = $request->input('quantity');
         $product_code = $request->input('product_code');
 
-        $productDetails = ProductList::where('product_code',$product_code)->get();
+        $productDetails = ProductData::where('product_code',$product_code)->get();
 
         $price = $productDetails[0]['price'];
         $special_price = $productDetails[0]['special_price'];
