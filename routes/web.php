@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\ProductListController; 
 use App\Http\Controllers\Admin\ContactController; 
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\SiteInfoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -109,3 +112,11 @@ Route::prefix('slider')->group(function(){
 Route::get('/all/message',[ContactController::class, 'GetAllMessage'])->name('contact.message');
 
 Route::get('/message/delete/{id}',[ContactController::class, 'DeleteMessage'])->name('message.delete');
+
+/// Product Review Route 
+Route::get('/all/review',[ReviewController::class, 'GetAllReview'])->name('all.review');
+
+/// Site Info Route 
+Route::get('/getsite/info',[SiteInfoController::class, 'GetSiteInfo'])->name('getsite.info');
+
+Route::post('/update/siteinfo',[SiteInfoController::class, 'UpdateSiteInfo'])->name('update.siteinfo');
