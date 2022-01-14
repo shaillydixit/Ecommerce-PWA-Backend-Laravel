@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController; 
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\ProductListController; 
+use App\Http\Controllers\Admin\ContactController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,3 +103,9 @@ Route::prefix('slider')->group(function(){
          
         Route::get('/delete/{id}',[SliderController::class, 'DeleteSlider'])->name('slider.delete');
         });
+
+        /// Contact Message Route 
+
+Route::get('/all/message',[ContactController::class, 'GetAllMessage'])->name('contact.message');
+
+Route::get('/message/delete/{id}',[ContactController::class, 'DeleteMessage'])->name('message.delete');
