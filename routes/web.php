@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\ContactController; 
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SiteInfoController;
-
+use App\Http\Controllers\Admin\ProductCartController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -120,3 +120,20 @@ Route::get('/all/review',[ReviewController::class, 'GetAllReview'])->name('all.r
 Route::get('/getsite/info',[SiteInfoController::class, 'GetSiteInfo'])->name('getsite.info');
 
 Route::post('/update/siteinfo',[SiteInfoController::class, 'UpdateSiteInfo'])->name('update.siteinfo');
+
+Route::prefix('order')->group(function(){
+
+    Route::get('/pending',[ProductCartController::class, 'PendingOrder'])->name('pending.order');
+    
+    Route::get('/processing',[ProductCartController::class, 'ProcessingOrder'])->name('processing.order');
+    
+    Route::get('/complete',[ProductCartController::class, 'CompleteOrder'])->name('complete.order');
+    
+    Route::get('/details/{id}',[ProductCartController::class, 'OrderDetails'])->name('order.details');
+    
+    Route::get('/status/processing/{id}',[ProductCartController::class, 'PendingToProcessing'])->name('pending.processing');
+    
+    Route::get('/status/complete/{id}',[ProductCartController::class, 'ProcessingToComplete'])->name('processing.complete');
+    
+     
+    });
